@@ -15,7 +15,7 @@ int main() {
     }
 
     // test2 
-    bool fail_case = generate_ast("error.sol", "error_ast.json");
+    bool fail_case = generate_ast("test/error.sol", "test/error_ast.ast");
     if (!fail_case) {
         std::cout << "错误处理正常：对无效文件返回失败。" << std::endl;
     }
