@@ -2,7 +2,8 @@
 #-*- coding: utf-8 -*-
 
 import random
-from generateExp import generateExp
+from exp_initialize.noTouchPure import noTouchPure
+from exp_initialize.generateExp import generateExp
 
 INT_FLAG = "int_const"
 

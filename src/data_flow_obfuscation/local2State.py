@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import json
-from noTouchPure import noTouchPure
+from exp_initialize.noTouchPure import noTouchPure
 import random
 import copy
 import re

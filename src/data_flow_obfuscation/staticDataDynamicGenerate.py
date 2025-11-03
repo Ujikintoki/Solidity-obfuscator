@@ -18,7 +18,7 @@ import os
 import json
 import sys
 import re
-from noTouchPure import noTouchPure
+from exp_initialize.noTouchPure import noTouchPure
 
 ADDRESS_FLAG = "address"
 STRING_FLAG = "literal_string"
