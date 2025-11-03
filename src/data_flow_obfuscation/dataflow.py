@@ -11,12 +11,19 @@ flow obfuscation.
 import os
 import json
 import sys
-from staticDataDynamicGenerate import staticDataDynamicGenerate
-from literal2Exp import literal2Exp
-from splitBoolVariable import splitBoolVariable
-from local2State import local2State
-# from arrayMergeCollapse import arrayMergeCollapse
-from scalar2Vector import scalar2Vector
+# from staticDataDynamicGenerate import staticDataDynamicGenerate
+# from literal2Exp import literal2Exp
+# from splitBoolVariable import splitBoolVariable
+# from local2State import local2State
+# # from arrayMergeCollapse import arrayMergeCollapse
+# from scalar2Vector import scalar2Vector
+
+from .staticDataDynamicGenerate import staticDataDynamicGenerate
+from .literal2Exp import literal2Exp
+from .splitBoolVariable import splitBoolVariable
+from .local2State import local2State
+from .scalar2Vector import scalar2Vector
+
 import time
 from random import random
 

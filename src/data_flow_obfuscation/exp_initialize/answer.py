@@ -72,5 +72,5 @@ def check_answer(exercisefile, answerfile):
 
 if __name__ == '__main__':
     exp_file= r'/test/Exercises.txt'
-    ans_file = r'/testAnswer.txt'
+    ans_file = r'/test/Answer.txt'
     check_answer(exp_file, ans_file)

@@ -1,7 +1,7 @@
 import os
 import sys
 import subprocess
-from src.data_flow_obfuscation.dataflow import dataflowObfuscation
+from data_flow_obfuscation.dataflow import dataflowObfuscation
 
 def main():
     if len(sys.argv) == 3:
