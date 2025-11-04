@@ -1,7 +1,8 @@
 # -*- coding=utf-8 -*-
 
 import operator
-import suffix_expression
+# import suffix_expression
+from .suffix_expression import suffix_to_value,to_suffix
 
 class Node:
     """

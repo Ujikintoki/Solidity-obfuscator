@@ -22,7 +22,7 @@ def main():
         try:
             # 调用solc编译生成AST
             subprocess.run(
-                ["solc", "--ast-json", "--overwrite", sol_path, "-o", os.path.dirname(ast_path)],
+                ["solc", "--ast-compact-json", "--overwrite", sol_path, "-o", os.path.dirname(ast_path)],
                 check=True,
                 capture_output=True
             )

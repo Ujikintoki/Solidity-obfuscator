@@ -4,12 +4,13 @@
 from random import randint
 from random import random
 import json
-from exp_initialize.generateExp import generateExp
+from .exp_initialize.generateExp import generateExp
 
 VAR_DECLARE = "VariableDeclaration"
 VAR_DECLARE_STATE = "VariableDeclarationStatement"
 VAR_ASSIGN = "Assignment"
-CORPUS_PATH = "Corpus.txt"
+#CORPUS_PATH = "Corpus.txt"
+CORPUS_PATH = "src/data_flow_obfuscation/Corpus.txt"
 RANDOM_LIMIT = 100
 
 class splitBoolVariable:

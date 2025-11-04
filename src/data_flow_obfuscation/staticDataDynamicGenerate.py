@@ -18,14 +18,15 @@ import os
 import json
 import sys
 import re
-from exp_initialize.noTouchPure import noTouchPure
+from .exp_initialize.noTouchPure import noTouchPure
 
 ADDRESS_FLAG = "address"
 STRING_FLAG = "literal_string"
 INT_FLAG = "int_const"
 BOOL_FLAG = "bool"
 
-CORPUS_PATH = "Corpus.txt"
+#CORPUS_PATH = "Corpus.txt"
+CORPUS_PATH = "src/data_flow_obfuscation/Corpus.txt"
 
 START_FLAG = 1
 END_FLAG = 2

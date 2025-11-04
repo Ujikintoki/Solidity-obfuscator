@@ -2,13 +2,14 @@
 #-*- coding: utf-8 -*-
 
 import json
-from exp_initialize.noTouchPure import noTouchPure
+from .exp_initialize.noTouchPure import noTouchPure
 import random
 import copy
 import re
 
 DEFAULT_VISIBILITY = "internal"
-CORPUS_PATH = "Corpus.txt"
+#CORPUS_PATH = "Corpus.txt"
+CORPUS_PATH = "src/data_flow_obfuscation/Corpus.txt"
 
 class local2State:
 	def __init__(self, _solContent, _jsonContent):

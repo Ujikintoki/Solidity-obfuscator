@@ -3,8 +3,8 @@
 from fractions import Fraction
 from random import randint
 
-from suffix_expression import suffix_to_value,to_suffix
-from remove_duplicate import generate_binary_tree,tree_is_same
+from .suffix_expression import suffix_to_value,to_suffix
+from .remove_duplicate import generate_binary_tree,tree_is_same
 
 class Config:
     """

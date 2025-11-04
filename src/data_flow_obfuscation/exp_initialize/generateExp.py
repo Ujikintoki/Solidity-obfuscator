@@ -2,9 +2,9 @@
 
 import argparse
 
-from exp_generate import Config,Generator
-from answer import expression_result,check_answer
-from postProcessing import postProcessing
+from .exp_generate import Config,Generator
+from .answer import expression_result,check_answer
+from .postProcessing import postProcessing
 import sys
 
 colors = True # Output should be colored

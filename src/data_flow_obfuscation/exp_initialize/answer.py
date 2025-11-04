@@ -2,7 +2,7 @@
 
 import re
 
-from suffix_expression import suffix_to_value,to_suffix
+from .suffix_expression import suffix_to_value,to_suffix
 
 def expression_result(exp_list):
     """

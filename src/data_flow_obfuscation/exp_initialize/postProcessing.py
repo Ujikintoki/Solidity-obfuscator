@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-from fraction import Fraction
+from fractions import Fraction
 import random
 
 class postProcessing:

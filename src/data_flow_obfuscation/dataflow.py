@@ -35,6 +35,10 @@ if not colors:
     end = green = bad = info = ''
     start = ' ['
     stop = ']'
+    backGreenFrontWhite = ''
+    white = ''
+    blue = ''
+    yellow = ''
 else:
     end = '\033[1;m'
     green = '\033[1;32m'
@@ -57,7 +61,7 @@ class dataflowObfuscation:
 		self.json = self.getJsonContent(_jsonFile)
 		self.middleContract = "temp.sol"
 		self.middleJsonAST = "temp.sol_json.ast"
-		self.configPath = "Configuration.json"
+		self.configPath = os.path.join(os.path.dirname(__file__), "Configuration.json")
 		self.getConfig()
 		#self.finalContract = _filepath.split(".sol")[0] + "_dataflow_confuse.sol"
 
@@ -84,7 +88,7 @@ class dataflowObfuscation:
 		print(("%s" + _step + ".... done" + "%s") % (yellow, end))
 
 	def recompileMiddleContract(self):
-		compileResult = os.popen("solc --ast-json --pretty-json --overwrite " + self.middleContract + " -o .")
+		compileResult = os.popen("solc --ast-compact-json --pretty-json --overwrite " + self.middleContract + " -o .")
 		#print(compileResult.read())
 		print(("%s" + "\rIntermediate contract is being generated." + "%s") % (white, end), end = " ")
 		time.sleep(1.5)
