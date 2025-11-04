@@ -26,7 +26,7 @@ INT_FLAG = "int_const"
 BOOL_FLAG = "bool"
 
 #CORPUS_PATH = "Corpus.txt"
-CORPUS_PATH = "src/data_flow_obfuscation/Corpus.txt"
+CORPUS_PATH = "./data_flow_obfuscation/Corpus.txt"
 
 START_FLAG = 1
 END_FLAG = 2

@@ -174,6 +174,8 @@ class dataflowObfuscation:
 				self.json = self.getJsonContent(self.jsonPath)
 				print(("%s" + "Scalar to vector...Exception occurs" + "%s") % (bad, end))
 		print((("%s") + "Complete data flow confusion." + ("%s")) % (backGreenFrontWhite, end))
+		self.writeStrToFile(self.outputFileName, self.solContent, "Save data flow confusion result")
+        # self.writeStrToFile(self.outputFileName, self.solContent)
 
 
 #unit test

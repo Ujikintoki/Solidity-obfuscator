@@ -10,7 +10,7 @@ VAR_DECLARE = "VariableDeclaration"
 VAR_DECLARE_STATE = "VariableDeclarationStatement"
 VAR_ASSIGN = "Assignment"
 #CORPUS_PATH = "Corpus.txt"
-CORPUS_PATH = "src/data_flow_obfuscation/Corpus.txt"
+CORPUS_PATH = "./data_flow_obfuscation/Corpus.txt"
 RANDOM_LIMIT = 100
 
 class splitBoolVariable:

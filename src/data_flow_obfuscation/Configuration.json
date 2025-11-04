@@ -1,8 +1,8 @@
 {
   "activateFunc": [
   		{"local2State": [false, 1]},
-  		{"staticDataDynamicGenerate": [true, 1]},
-  		{"literal2Exp": [true, 1]},
+  		{"staticDataDynamicGenerate": [false, 0.5]},
+  		{"literal2Exp": [false, 0.5]},
   		{"splitBoolVariable": [true, 1]},
 	 	{"scalar2Vector": [true, 1]}, 
   		{"replaceVarName": [true, 1]}

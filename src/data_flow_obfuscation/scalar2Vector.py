@@ -13,7 +13,7 @@ STRING_FLAG = "string"
 BYTES_FLAG = "bytes"
 
 #CORPUS_PATH = "Corpus.txt"
-CORPUS_PATH = "src/data_flow_obfuscation/Corpus.txt"
+CORPUS_PATH = "./data_flow_obfuscation/Corpus.txt"
 
 class scalar2Vector:
 	def __init__(self, _solContent, _jsonContent):
