@@ -22,40 +22,37 @@ contract TestObfuscation {
 
     constructor() {
         
-        uint256 cf_state_x5a9c6e0 = 1;
-        uint256 result_7615 = block.timestamp % 49;
-        uint256 data_8339 = result_7615 + 1;
+        uint256 cf_state_x3736c0b = 405 - 405 + 1;
 
-        for (uint256 i = 0; i < 9; i++) {
-            if (cf_state_x5a9c6e0 == 1 && result_7615 > 12) {
-                contractOwner = msg.sender
-                cf_state_x5a9c6e0 = 0;
-                break;
+        while (cf_state_x3736c0b != 0) {
+            if (cf_state_x3736c0b == 1) {
+                contractOwner = msg.sender;
+                cf_state_x3736c0b = 0;
+                continue;
             }
-            else if (cf_state_x5a9c6e0 == 1 && data_8339 < 58) {
-                uint256 data_5569 = result_7615 * data_8339;
-                cf_state_x5a9c6e0 = 0;
+            else if (cf_state_x3736c0b == 2) {
+                uint256 temp_9133 = block.timestamp % 34;
+                cf_state_x3736c0b = 0;
+                continue;
             }
             else {
-                result_7615 = result_7615 + 1;
-                data_8339 = data_8339 - 1;
+                break;
             }
-
-            if (cf_state_x5a9c6e0 == 0) break;
         }
-        ;
-    }
+        }
 
     function updateValue(uint256 _newValue, uint256 _factor) public returns (bool) {
         
-        uint256 cf_state_3d256dc8 = 1;
+        uint256 cf_state_23c4bf02 = 1;
         bool _completed = false;
 
         while (!_completed) {
-            if (cf_state_3d256dc8 == 1) {
+            if (cf_state_23c4bf02 == 1) {
                 if (_factor == 0) {
             totalCounter += _newValue;
-            false; cf_state_3d256dc8 = 0; continue;
+            cf_state_23c4bf02 = 0;
+
+            return false;
         } else if (_newValue > 100) {
             totalCounter += _newValue * _factor;
         } else {
@@ -64,31 +61,35 @@ contract TestObfuscation {
 
         emit ValueUpdated(msg.sender, totalCounter);
 
-        return true
-                cf_state_3d256dc8 = 0;
+        cf_state_23c4bf02 = 0;
+
+
+        return true;
+                cf_state_23c4bf02 = 0;
                 _completed = true;
             }
-            else if (cf_state_3d256dc8 == 2) {
-                uint256 data_2371 = block.number;
-                cf_state_3d256dc8 = 3;
+            else if (cf_state_23c4bf02 == 2) {
+                uint256 flag_7532 = block.number;
+                cf_state_23c4bf02 = 0;
             }
-            else if (cf_state_3d256dc8 == 3) {
-                uint256 data_7684 = tx.gasprice;
-                cf_state_3d256dc8 = 1;
+            else if (cf_state_23c4bf02 == 3) {
+                uint256 flag_7480 = tx.gasprice;
+                cf_state_23c4bf02 = 1;
             }
             else {
                 _completed = true;
             }
         }
-        ;
-    }
+        }
 
     function initializeUsers(address[] memory userList) public onlyOwner {
         
-        uint256 cf_state_61266eb6 = 124 - 124 + 1;
+        uint256 cf_state_x736d8bd = 1;
+        uint256 tmp_7454 = block.timestamp % 34;
+        uint256 tmp_3088 = tmp_7454 + 7;
 
-        while (cf_state_61266eb6 != 0) {
-            if (cf_state_61266eb6 == 1) {
+        for (uint256 i = 0; i < 3; i++) {
+            if (cf_state_x736d8bd == 1 && tmp_7454 > 16) {
                 for (uint256 i = 0; i < userList.length; i++) {
             address userAddress = userList[i];
 
@@ -99,40 +100,46 @@ contract TestObfuscation {
             });
             totalCounter++; 
         }
-                cf_state_61266eb6 = 0;
-                continue;
-            }
-            else if (cf_state_61266eb6 == 2) {
-                uint256 value_7800 = block.timestamp % 19;
-                cf_state_61266eb6 = 0;
-                continue;
-            }
-            else {
+                cf_state_x736d8bd = 0;
                 break;
             }
+            else if (cf_state_x736d8bd == 1 && tmp_3088 < 80) {
+                uint256 temp_1041 = tmp_7454 * tmp_3088;
+                cf_state_x736d8bd = 1;
+            }
+            else {
+                tmp_7454 = tmp_7454 + 1;
+                tmp_3088 = tmp_3088 - 1;
+            }
+
+            if (cf_state_x736d8bd == 0) break;
         }
         
     }
 
     function getTotalCounter() public view returns (uint256) {
         
-        uint256 cf_state_xda0efb8 = 365 - 365 + 1;
+        uint256 cf_state_x703fe39 = 1;
+        bool _completed = false;
 
-        while (cf_state_xda0efb8 != 0) {
-            if (cf_state_xda0efb8 == 1) {
-                return totalCounter
-                cf_state_xda0efb8 = 0;
-                continue;
+        while (!_completed) {
+            if (cf_state_x703fe39 == 1) {
+                cf_state_x703fe39 = 0;
+return totalCounter;
+                cf_state_x703fe39 = 0;
+                _completed = true;
             }
-            else if (cf_state_xda0efb8 == 2) {
-                uint256 flag_7286 = block.timestamp % 92;
-                cf_state_xda0efb8 = 0;
-                continue;
+            else if (cf_state_x703fe39 == 2) {
+                uint256 flag_7442 = block.number;
+                cf_state_x703fe39 = 3;
+            }
+            else if (cf_state_x703fe39 == 3) {
+                uint256 temp_2086 = tx.gasprice;
+                cf_state_x703fe39 = 1;
             }
             else {
-                break;
+                _completed = true;
             }
         }
-        ;
-    }
+        }
 }

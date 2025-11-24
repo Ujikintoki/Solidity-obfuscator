@@ -116,6 +116,13 @@ class ControlFlowObfuscator:
         try:
             last_offset, last_length, _ = map(int, last_statement_src.split(':'))
             end_offset = last_offset + last_length
+
+            # 某些语句（如 ExpressionStatement / Return）在 AST 长度中不包含末尾分号，
+            # 如果源代码紧随其后的是 ';'，手动将其纳入提取范围。
+            if end_offset < len(self.source_code) and self.source_code[end_offset] == ';':
+                end_offset += 1
+                while end_offset < len(self.source_code) and self.source_code[end_offset].isspace():
+                    end_offset += 1
         except Exception:
             return None
 
@@ -132,16 +139,18 @@ class ControlFlowObfuscator:
         }
 
     def _handle_control_flow_statements(self, code, state_var):
-        """处理控制流语句（return, break, continue）"""
+        """处理 return 语句，保持语法有效并在返回前更新状态。"""
 
         def replace_return(match):
-            return_value = match.group(1).strip() if match.group(1) else ""
-            if return_value:
-                return f"{return_value}; {state_var} = 0; continue;"
-            else:
-                return f"{state_var} = 0; continue;"
+            indent = match.group("indent") or ""
+            return_value = match.group("value").strip() if match.group("value") else ""
 
-        return_pattern = r'return\s*([^;]*)\s*;'
+            if return_value:
+                return f"{indent}{state_var} = 0;\n{indent}return {return_value};"
+            else:
+                return f"{indent}{state_var} = 0;\n{indent}return;"
+
+        return_pattern = r'(?P<indent>\s*)return\s*(?P<value>[^;]*)\s*;'
         code = re.sub(return_pattern, replace_return, code)
 
         return code
@@ -218,10 +227,12 @@ class ControlFlowObfuscator:
             """
 
         real_state = randint(1, total_states)
+        first_branch = True
         for state in range(1, total_states + 1):
+            branch_keyword = "if" if first_branch else "else if"
             if state == real_state:
                 state_machine += f"""
-            if ({state_var} == {state}) {{
+            {branch_keyword} ({state_var} == {state}) {{
                 {processed_code}
                 {state_var} = 0;
                 continue;
@@ -229,11 +240,12 @@ class ControlFlowObfuscator:
             else:
                 next_state = self._generate_fake_transition(state, total_states)
                 state_machine += f"""
-            else if ({state_var} == {state}) {{
+            {branch_keyword} ({state_var} == {state}) {{
                 uint256 {self._generate_fake_variable_name()} = block.timestamp % {randint(2, 20)};
                 {state_var} = {next_state};
                 continue;
             }}"""
+            first_branch = False
 
         state_machine += """
             else {

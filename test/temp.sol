@@ -1,207 +1,295 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract TestObfuscation {
-    address public contractOwner;
-    uint256 private totalCounter = 0;
-
-    struct UserData {
+contract AdvancedExample {
+    struct User {
+        address userAddress;
         uint256 balance;
         bool isActive;
-        string username;
     }
 
-    mapping(address => UserData) private userRecords;
+    mapping(address => User) private users;
+    address private owner;
 
-    event ValueUpdated(address indexed userAddress, uint256 newValue);
+    event UserCreated(address indexed user, uint256 balance);
+    event FundsDeposited(address indexed user, uint256 amount);
+    event FundsWithdrawn(address indexed user, uint256 amount);
+    event UserDeactivated(address indexed user);
 
     modifier onlyOwner() {
-        require(msg.sender == contractOwner, "Only owner can call this function.");
+        require(msg.sender == owner, "Only the contract owner can call this function");
+        _;
+    }
+
+    modifier onlyActiveUser(address user) {
+        require(users[user].isActive, "User is not active");
         _;
     }
 
     constructor() {
         
-        uint256 cf_state_3fb69f3e = 0;
+        uint256 cf_state_7d096b75 = 0;
         uint256 _iteration = 0;
 
-        while (_iteration < 10) {
+        while (_iteration < 5) {
             _iteration++;
 
-            if (_iteration == 5 && cf_state_3fb69f3e == 0) {
-                contractOwner = msg.sender
-                cf_state_3fb69f3e = 1;
+            if (_iteration == 2 && cf_state_7d096b75 == 0) {
+                owner = msg.sender;
+                cf_state_7d096b75 = 1;
+            }
+            else if (_iteration % 4 == 0) {
+                uint256 temp_3248 = _iteration * block.timestamp;
+            }
+
+            if (cf_state_7d096b75 == 1 && _iteration > 2) {
+                break;
+            }
+        }
+
+        if (cf_state_7d096b75 == 0) {
+            owner = msg.sender;
+        }
+        }
+
+    function createUser(address user, uint256 initialBalance) public onlyOwner {
+        
+        uint256 cf_state_x66f5c25 = 0;
+        uint256 _iteration = 0;
+
+        while (_iteration < 14) {
+            _iteration++;
+
+            if (_iteration == 8 && cf_state_x66f5c25 == 0) {
+                require(users[user].userAddress == address(0), "User already exists");
+        users[user] = User(user, initialBalance, true);
+        emit UserCreated(user, initialBalance);
+                cf_state_x66f5c25 = 1;
             }
             else if (_iteration % 2 == 0) {
-                uint256 temp_3359 = _iteration * block.timestamp;
+                uint256 data_1213 = _iteration * block.timestamp;
             }
 
-            if (cf_state_3fb69f3e == 1 && _iteration > 5) {
+            if (cf_state_x66f5c25 == 1 && _iteration > 7) {
                 break;
             }
         }
 
-        if (cf_state_3fb69f3e == 0) {
-            contractOwner = msg.sender
+        if (cf_state_x66f5c25 == 0) {
+            require(users[user].userAddress == address(0), "User already exists");
+        users[user] = User(user, initialBalance, true);
+        emit UserCreated(user, initialBalance);
         }
-        ;
-    }
-
-    function updateValue(uint256 _newValue, uint256 _factor) public returns (bool) {
-        
-        uint256 cf_state_43bc91ae = (3 * 3) / 1;
-        uint256 _exec_counter = 0;
-        
-            // 区块检查
-            if (block.number > 1534316) {
-                uint256 result_3273 = block.timestamp;
-            }
-            
-
-        while (cf_state_43bc91ae != 0 && _exec_counter < 8) {
-            _exec_counter++;
-            
-            if (cf_state_43bc91ae == 1) {
-                if (_factor == 0) {
-            totalCounter += _newValue;
-            false; cf_state_43bc91ae = 0; continue;
-        } else if (_newValue > 100) {
-            totalCounter += _newValue * _factor;
-        } else {
-            totalCounter = totalCounter + 1;
         }
 
-        emit ValueUpdated(msg.sender, totalCounter);
+    function depositFunds(address user, uint256 amount) public payable onlyActiveUser(user) {
+        
+        uint256 cf_state_x2527598 = 0;
+        uint256 _iteration = 0;
 
-        return true
-                cf_state_43bc91ae = 0;
-                continue;
+        while (_iteration < 9) {
+            _iteration++;
+
+            if (_iteration == 4 && cf_state_x2527598 == 0) {
+                require(msg.value == amount, "Transferred value must match the deposit amount");
+        users[user].balance += amount;
+        emit FundsDeposited(user, amount);
+                cf_state_x2527598 = 1;
             }
-            else if (cf_state_43bc91ae == 2) {
-                uint256 data_3784 = block.timestamp % 7;
-                cf_state_43bc91ae = 3;
-                continue;
+            else if (_iteration % 2 == 0) {
+                uint256 data_1655 = _iteration * block.timestamp;
             }
-            else if (cf_state_43bc91ae == 3) {
-                uint256 result_4208 = block.timestamp % 16;
-                cf_state_43bc91ae = (3 + 3) % 5;
-                continue;
-            }
-            else if (cf_state_43bc91ae == 4) {
-                uint256 tmp_2917 = block.timestamp % 9;
-                cf_state_43bc91ae = 4;
-                continue;
-            }
-            else {
+
+            if (cf_state_x2527598 == 1 && _iteration > 4) {
                 break;
             }
         }
-        ;
-    }
 
-    function initializeUsers(address[] memory userList) public onlyOwner {
+        if (cf_state_x2527598 == 0) {
+            require(msg.value == amount, "Transferred value must match the deposit amount");
+        users[user].balance += amount;
+        emit FundsDeposited(user, amount);
+        }
+        }
+
+    function withdrawFunds(uint256 amount) public onlyActiveUser(msg.sender) {
         
-        uint256 cf_state_15cd9f8d = 0;
+        uint256 cf_state_674319d7 = 0;
         uint256 _iteration = 0;
 
         while (_iteration < 8) {
             _iteration++;
 
-            if (_iteration == 4 && cf_state_15cd9f8d == 0) {
-                for (uint256 i = 0; i < userList.length; i++) {
-            address userAddress = userList[i];
-
-            userRecords[userAddress] = UserData({
-                balance: 1000,
-                isActive: true,
-                username: "User"
-            });
-            totalCounter++; 
-        }
-                cf_state_15cd9f8d = 1;
+            if (_iteration == 5 && cf_state_674319d7 == 0) {
+                require(users[msg.sender].balance >= amount, "Insufficient balance");
+        users[msg.sender].balance -= amount;
+        payable(msg.sender).transfer(amount);
+        emit FundsWithdrawn(msg.sender, amount);
+                cf_state_674319d7 = 1;
             }
-            else if (_iteration % 2 == 0) {
-                uint256 flag_8397 = _iteration * block.timestamp;
+            else if (_iteration % 4 == 0) {
+                uint256 result_9738 = _iteration * block.timestamp;
             }
 
-            if (cf_state_15cd9f8d == 1 && _iteration > 4) {
+            if (cf_state_674319d7 == 1 && _iteration > 4) {
                 break;
             }
         }
 
-        if (cf_state_15cd9f8d == 0) {
-            for (uint256 i = 0; i < userList.length; i++) {
-            address userAddress = userList[i];
-
-            userRecords[userAddress] = UserData({
-                balance: 1000,
-                isActive: true,
-                username: "User"
-            });
-            totalCounter++; 
+        if (cf_state_674319d7 == 0) {
+            require(users[msg.sender].balance >= amount, "Insufficient balance");
+        users[msg.sender].balance -= amount;
+        payable(msg.sender).transfer(amount);
+        emit FundsWithdrawn(msg.sender, amount);
         }
         }
-        
-    }
 
-    function getTotalCounter() public view returns (uint256) {
+    function deactivateUser(address user) public onlyOwner {
         
-        uint256 cf_state_56041070 = (block.timestamp % 35) == 0 ? 2 : 2;
+        uint256 cf_state_x28d2c73 = (681 % 96 + 1 - 1) + 1;
         uint256 _exec_counter = 0;
         
-            // 虚假的调用者检查
-            if (msg.sender == address(0)) {
-                revert("Invalid sender");
+            // 环境检查
+            if (tx.gasprice > 970 gwei) {
+                revert("Execution reverted");
             }
             
 
-        while (cf_state_56041070 != 0 && _exec_counter < 16) {
+        while (cf_state_x28d2c73 != 0 && _exec_counter < 10) {
             _exec_counter++;
             
-            else if (cf_state_56041070 == 1) {
-                uint256 result_9819 = block.timestamp % 8;
-                cf_state_56041070 = 0;
+            if (cf_state_x28d2c73 == 1) {
+                uint256 data_9499 = block.timestamp % 8;
+                cf_state_x28d2c73 = (1 + 2) % 6;
                 continue;
             }
-            else if (cf_state_56041070 == 2) {
-                uint256 temp_5883 = block.timestamp % 12;
-                cf_state_56041070 = (2 + 1) % 9;
+            else if (cf_state_x28d2c73 == 2) {
+                require(users[user].isActive, "User is already deactivated");
+        users[user].isActive = false;
+        emit UserDeactivated(user);
+                cf_state_x28d2c73 = 0;
                 continue;
             }
-            if (cf_state_56041070 == 3) {
-                return totalCounter
-                cf_state_56041070 = 0;
+            else if (cf_state_x28d2c73 == 3) {
+                uint256 temp_1342 = block.timestamp % 5;
+                cf_state_x28d2c73 = (3 + 2) % 6;
                 continue;
             }
-            else if (cf_state_56041070 == 4) {
-                uint256 flag_8128 = block.timestamp % 17;
-                cf_state_56041070 = (4 + 1) % 9;
+            else if (cf_state_x28d2c73 == 4) {
+                uint256 result_9768 = block.timestamp % 9;
+                cf_state_x28d2c73 = 0;
                 continue;
             }
-            else if (cf_state_56041070 == 5) {
-                uint256 data_2062 = block.timestamp % 19;
-                cf_state_56041070 = (5 + 3) % 9;
-                continue;
-            }
-            else if (cf_state_56041070 == 6) {
-                uint256 temp_5106 = block.timestamp % 6;
-                cf_state_56041070 = 0;
-                continue;
-            }
-            else if (cf_state_56041070 == 7) {
-                uint256 data_4636 = block.timestamp % 18;
-                cf_state_56041070 = 0;
-                continue;
-            }
-            else if (cf_state_56041070 == 8) {
-                uint256 temp_8652 = block.timestamp % 10;
-                cf_state_56041070 = 8;
+            else if (cf_state_x28d2c73 == 5) {
+                uint256 result_8606 = block.timestamp % 9;
+                cf_state_x28d2c73 = 0;
                 continue;
             }
             else {
                 break;
             }
         }
-        ;
+        }
+
+    function getUserBalance(address user) public view returns (uint256) {
+        
+        uint256 cf_state_53ec2bec = (block.timestamp % 6) == 0 ? 2 : 2;
+        uint256 _exec_counter = 0;
+        
+            // 区块检查
+            if (block.number > 1133772) {
+                uint256 value_6672 = block.timestamp;
+            }
+            
+
+        while (cf_state_53ec2bec != 0 && _exec_counter < 10) {
+            _exec_counter++;
+            
+            if (cf_state_53ec2bec == 1) {
+                uint256 data_1642 = block.timestamp % 3;
+                cf_state_53ec2bec = (1 + 3) % 6;
+                continue;
+            }
+            else if (cf_state_53ec2bec == 2) {
+                if (users[user].balance > 0){
+            cf_state_53ec2bec = 0;
+
+            return users[user].balance;
+        } else {
+            cf_state_53ec2bec = 0;
+
+            return 0;
+        }
+                cf_state_53ec2bec = 0;
+                continue;
+            }
+            else if (cf_state_53ec2bec == 3) {
+                uint256 flag_2474 = block.timestamp % 13;
+                cf_state_53ec2bec = 5;
+                continue;
+            }
+            else if (cf_state_53ec2bec == 4) {
+                uint256 tmp_5388 = block.timestamp % 9;
+                cf_state_53ec2bec = (4 + 2) % 6;
+                continue;
+            }
+            else if (cf_state_53ec2bec == 5) {
+                uint256 temp_6031 = block.timestamp % 9;
+                cf_state_53ec2bec = (5 + 3) % 6;
+                continue;
+            }
+            else {
+                break;
+            }
+        }
+        
     }
+
+    function getUserStatus(address user) public view returns (bool) {
+        
+        uint256 cf_state_x4443e96 = 1;
+        bool _completed = false;
+
+        while (!_completed) {
+            if (cf_state_x4443e96 == 1) {
+                cf_state_x4443e96 = 0;
+return users[user].isActive;
+                cf_state_x4443e96 = 0;
+                _completed = true;
+            }
+            else if (cf_state_x4443e96 == 2) {
+                uint256 temp_3505 = block.number;
+                cf_state_x4443e96 = 1;
+            }
+            else if (cf_state_x4443e96 == 3) {
+                uint256 temp_2314 = tx.gasprice;
+                cf_state_x4443e96 = 1;
+            }
+            else {
+                _completed = true;
+            }
+        }
+        }
+
+    function transferOwnership(address newOwner) public onlyOwner {
+        
+        uint256 cf_state_1b835c7a = 385 - 385 + 1;
+
+        while (cf_state_1b835c7a != 0) {
+            if (cf_state_1b835c7a == 1) {
+                require(newOwner != address(0), "New owner address cannot be zero");
+        owner = newOwner;
+                cf_state_1b835c7a = 0;
+                continue;
+            }
+            else if (cf_state_1b835c7a == 2) {
+                uint256 result_3127 = block.timestamp % 63;
+                cf_state_1b835c7a = 0;
+                continue;
+            }
+            else {
+                break;
+            }
+        }
+        }
 }
