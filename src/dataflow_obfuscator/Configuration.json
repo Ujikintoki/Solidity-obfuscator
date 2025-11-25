@@ -1,0 +1,6 @@
+{
+	"activateFunc": [
+		{"literal2Exp": [true, 1]},
+		{"splitBoolVariable": [true, 1]}
+	]
+  }
