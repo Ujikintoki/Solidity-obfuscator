@@ -3,8 +3,8 @@
 
 ## Author
 - **LI Chenhao** - [Ujikintoki](https://github.com/Ujikintoki): Design main code structures, develop ast parser util, develop control flow obfuscator, and write readme file.
-- **Wang Han** -: The introduction and final discussion part in the presentation. The phase 1 part of the layout obsuscation.
-- **PING Xinyao** -: Develop data flow obfuscator
+- **Wang Han** - The introduction and final discussion part in the presentation. The phase 1 part of the layout obsuscation.
+- **PING Xinyao** - Develop data flow obfuscator
 ## Intro
 
 Solidity-obfuscator aims to protect smart contracts by making their code harder to reverse-engineer, analyze, or exploit. By applying various obfuscation strategies, it helps safeguard sensitive logic and business rules embedded in the contracts.

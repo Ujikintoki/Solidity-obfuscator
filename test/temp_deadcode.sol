@@ -46,6 +46,9 @@ contract TestObfuscation {
         }
 
     function updateValue(uint256 _newValue, uint256 _factor) public returns (bool) {
+    uint256 __dead_284587 = 0;
+    for (uint256 __i_284587 = 0; __i_284587 < 0; __i_284587++) {}
+
         
         uint256 cf_state_x11cd9a9 = 798 - 798 + 1;
 
@@ -83,6 +86,9 @@ contract TestObfuscation {
         }
 
     function initializeUsers(address[] memory userList) public onlyOwner {
+    uint256 __dead_485655 = 0;
+    if (false) { __dead_485655 = __dead_485655 + 1; }
+
         
         uint256 cf_state_6bd0c39a = 1;
         uint256 temp_9515 = block.timestamp % 34;
@@ -118,6 +124,9 @@ contract TestObfuscation {
     }
 
     function getTotalCounter() public view returns (uint256) {
+    uint256 __dead_481127 = 0;
+    if (false) { uint256 __tmp_481127 = __dead_481127; __tmp_481127++; }
+
         
         uint256 cf_state_78fa740b = 0;
         uint256 _iteration = 0;
