@@ -13,7 +13,7 @@ Solidity-obfuscator aims to protect smart contracts by making their code harder 
 ## Features
 
 - **Control Flow Obfuscation**: transform the sequential code function blocks into a fakse conditions or loops.
-- **Dataflow Obfuscation**:
+- **Dataflow Obfuscation**:replac integer and boolean literals with semantically equivalent but structurally complex arithmetic and logical expressions base on configurable probabilities
 - **Layout Obfuscation**:
 - **Dead Code Insertion**:
 
