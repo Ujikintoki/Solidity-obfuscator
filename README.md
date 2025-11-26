@@ -3,6 +3,7 @@
 
 ## Author
 - **LI Chenhao** - [Ujikintoki](https://github.com/Ujikintoki): Design main code structures, develop ast parser util, develop control flow obfuscator, and write readme file.
+- **Wang Han** -: The introduction and final discussion part in the presentation. The phase 1 part of the layout obsuscation.
 
 ## Intro
 
