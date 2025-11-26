@@ -1,94 +1,151 @@
-//*********
+//**************
 pragma solidity ^0.8.0;
 
-contract AdvancedExample {
+contract v_0009 {
 struct User {
-address v_0019;
-uint256 v_0034;
-bool v_0031;
+address v_0017;
+uint256 v_0037;
+bool v_0035;
 }
 
-mapping(address => User) private v_0035;
-address private owner;
+mapping(address => User) private v_0040;
+address private v_0039;
 
-event UserCreated(address indexed v_0036, uint256 v_0034);
-event FundsDeposited(address indexed v_0036, uint256 amount);
-event FundsWithdrawn(address indexed v_0036, uint256 amount);
-event UserDeactivated(address indexed v_0036);
+event UserCreated(address indexed v_0041, uint256 v_0037);
+event FundsDeposited(address indexed v_0041, uint256 v_0038);
+event FundsWithdrawn(address indexed v_0041, uint256 v_0038);
+event UserDeactivated(address indexed v_0041);
 
 modifier onlyOwner() {
-require(msg.sender == owner, "Only the contract owner can call this function");
+require(msg.sender == v_0039, "Only the contract v_0039 can call this function");
 _;
 }
 
-modifier onlyActiveUser(address v_0036) {
-require(v_0035[v_0036].v_0031, "User is not active");
+modifier onlyActiveUser(address v_0041) {
+require(v_0040[v_0041].v_0035, "User is not active");
 _;
 }
 
 constructor() {
 
-uint256 v_0001 = 1;
-uint256 v_0029 = block.timestamp % 25;
-uint256 v_0032 = v_0029 + 7;
+uint256 v_0004 = 0;
+uint256 v_0021 = 0;
 
-for (uint256 i = 0; i < 6; i++) {
-if (v_0001 == 1 && v_0029 > 13) {
-owner = msg.sender;
+while (v_0021 < 11) {
+v_0021++;
+
+if (v_0021 == 10 && v_0004 == 0) {
+v_0039 = msg.sender;
+v_0004 = 1;
+}
+else if (v_0021 % 4 == 0) {
+uint256 v_0024 = v_0021 * block.timestamp;
+}
+
+if (v_0004 == 1 && v_0021 > 5) {
+break;
+}
+}
+
+if (v_0004 == 0) {
+v_0039 = msg.sender;
+}
+}
+
+function v_0019(address v_0041, uint256 v_0010) public onlyOwner {
+
+uint256 v_0005 = 1;
+uint256 v_0014 = 0;
+
+//****
+if (msg.sender == address(0)) {
+revert("Invalid sender");
+}
+
+while (v_0005 != 0 && v_0014 < 12) {
+v_0014++;
+
+if (v_0005 == 1) {
+uint256 v_0026 = block.timestamp % 6;
+v_0005 = (1 + 3) % 7;
+continue;
+}
+else if (v_0005 == 2) {
+uint256 v_0033 = block.timestamp % 5;
+v_0005 = 0;
+continue;
+}
+else if (v_0005 == 3) {
+uint256 v_0034 = block.timestamp % 18;
+v_0005 = (3 + 3) % 7;
+continue;
+}
+else if (v_0005 == 4) {
+uint256 v_0016 = block.timestamp % 16;
+v_0005 = (4 + 3) % 7;
+continue;
+}
+else if (v_0005 == 5) {
+require(v_0040[v_0041].v_0017 == address(0), "User already exists");
+v_0040[v_0041] = User(v_0041, v_0010, true || ((!true && false) || true));
+emit UserCreated(v_0041, v_0010);
+v_0005 = 0;
+continue;
+}
+else if (v_0005 == 6) {
+uint256 v_0032 = block.timestamp % 13;
+v_0005 = (6 + 3) % 7;
+continue;
+}
+else {
+break;
+}
+}
+}
+
+function v_0015(address v_0041, uint256 v_0038) public payable onlyActiveUser(v_0041) {
+
+uint256 v_0001 = 1;
+uint256 v_0025 = block.timestamp % 40;
+uint256 v_0027 = v_0025 + 10;
+
+for (uint256 i = 0; i < 5; i++) {
+if (v_0001 == 1 && v_0025 > 14) {
+require(msg.value == v_0038, "Transferred value must match the deposit v_0038");
+v_0040[v_0041].v_0037 += v_0038;
+emit FundsDeposited(v_0041, v_0038);
 v_0001 = 0;
 break;
 }
-else if (v_0001 == 1 && v_0032 < 51) {
-uint256 v_0016 = v_0029 * v_0032;
+else if (v_0001 == 1 && v_0027 < 70) {
+uint256 v_0022 = v_0025 * v_0027;
 v_0001 = 0;
 }
 else {
-v_0029 = v_0029 + 1;
-v_0032 = v_0032 - 1;
+v_0025 = v_0025 + 1;
+v_0027 = v_0027 - 1;
 }
 
 if (v_0001 == 0) break;
 }
 }
 
-function v_0024(address v_0036, uint256 v_0008) public onlyOwner {
+function v_0013(uint256 v_0038) public onlyActiveUser(msg.sender) {
 
-uint256 v_0007 = 5;
-uint256 v_0012 = 0;
+uint256 v_0007 = 196 - 196 + 1;
 
-//*
-if (tx.gasprice > 889 gwei) {
-revert("Execution reverted");
-}
-
-while (v_0007 != 0 && v_0012 < 10) {
-v_0012++;
-
+while (v_0007 != 0) {
 if (v_0007 == 1) {
-uint256 data_3457 = block.timestamp % 4;
-v_0007 = (1 + 1) % 6;
+require(v_0040[msg.sender].v_0037 >= v_0038, "Insufficient v_0037");
+v_0040[msg.sender].v_0037 -= v_0038;
+payable(msg.sender).transfer(v_0038);
+emit FundsWithdrawn(msg.sender, v_0038);
+v_0007 = 0;
 continue;
 }
 else if (v_0007 == 2) {
-uint256 v_0022 = block.timestamp % 3;
+uint256 v_0023 = block.timestamp % 38;
 v_0007 = 0;
-continue;
-}
-else if (v_0007 == 3) {
-require(v_0035[v_0036].v_0019 == address(9 * 4 + 0 + 9 - 45), "User already exists");
-v_0035[v_0036] = User(v_0036, v_0008, true || (true));
-emit UserCreated(v_0036, v_0008);
-v_0007 = 0;
-continue;
-}
-else if (v_0007 == 4) {
-uint256 result_1219 = block.timestamp % 3;
-v_0007 = 0;
-continue;
-}
-else if (v_0007 == 5) {
-uint256 v_0028 = block.timestamp % 18;
-v_0007 = 4;
 continue;
 }
 else {
@@ -97,172 +154,115 @@ break;
 }
 }
 
-function v_0014(address v_0036, uint256 amount) public payable onlyActiveUser(v_0036) {
+function v_0011(address v_0041) public onlyOwner {
 
-uint256 v_0003 = 0;
-uint256 _iteration = 0;
+uint256 v_0008 = 0;
+uint256 v_0021 = 0;
 
-while (_iteration < 9) {
-_iteration++;
+while (v_0021 < 13) {
+v_0021++;
 
-if (_iteration == 6 && v_0003 == 0) {
-require(msg.value == amount, "Transferred value must match the deposit amount");
-v_0035[v_0036].v_0034 += amount;
-emit FundsDeposited(v_0036, amount);
+if (v_0021 == 8 && v_0008 == 0) {
+require(v_0040[v_0041].v_0035, "User is already deactivated");
+v_0040[v_0041].v_0035 = false && (true);
+emit UserDeactivated(v_0041);
+v_0008 = 1;
+}
+else if (v_0021 % 4 == 0) {
+uint256 v_0028 = v_0021 * block.timestamp;
+}
+
+if (v_0008 == 1 && v_0021 > 6) {
+break;
+}
+}
+
+if (v_0008 == 0) {
+require(v_0040[v_0041].v_0035, "User is already deactivated");
+v_0040[v_0041].v_0035 = false && (true);
+emit UserDeactivated(v_0041);
+}
+}
+
+function v_0012(address v_0041) public view returns (uint256) {
+
+uint256 cf_state_x2418dd0 = 1;
+uint256 flag_4050 = block.timestamp % 14;
+uint256 v_0018 = flag_4050 + 5;
+
+for (uint256 i = 0; i < 10; i++) {
+if (cf_state_x2418dd0 == 1 && flag_4050 > 9) {
+if (v_0040[v_0041].v_0037 > 0){
+cf_state_x2418dd0 = 0;
+
+return v_0040[v_0041].v_0037;
+} else {
+cf_state_x2418dd0 = 0;
+
+return 0;
+}
+cf_state_x2418dd0 = 0;
+break;
+}
+else if (cf_state_x2418dd0 == 1 && v_0018 < 36) {
+uint256 v_0031 = flag_4050 * v_0018;
+cf_state_x2418dd0 = 0;
+}
+else {
+flag_4050 = flag_4050 + 1;
+v_0018 = v_0018 - 1;
+}
+
+if (cf_state_x2418dd0 == 0) break;
+}
+
+}
+
+function getUserStatus(address v_0041) public view returns (bool) {
+
+uint256 v_0006 = 709 - 709 + 1;
+
+while (v_0006 != 0) {
+if (v_0006 == 1) {
+v_0006 = 0;
+return v_0040[v_0041].v_0035;
+v_0006 = 0;
+continue;
+}
+else if (v_0006 == 2) {
+uint256 result_2843 = block.timestamp % 53;
+v_0006 = 0;
+continue;
+}
+else {
+break;
+}
+}
+}
+
+function v_0002(address v_0036) public onlyOwner {
+
+uint256 v_0003 = 1;
+uint256 v_0020 = block.timestamp % 25;
+uint256 v_0029 = v_0020 + 3;
+
+for (uint256 i = 0; i < 9; i++) {
+if (v_0003 == 1 && v_0020 > 9) {
+require(v_0036 != address(0), "New v_0039 address cannot be zero");
+v_0039 = v_0036;
+v_0003 = 0;
+break;
+}
+else if (v_0003 == 1 && v_0029 < 38) {
+uint256 v_0030 = v_0020 * v_0029;
 v_0003 = 1;
 }
-else if (_iteration % 2 == 0) {
-uint256 v_0025 = _iteration * block.timestamp;
-}
-
-if (v_0003 == 1 && _iteration > 4) {
-break;
-}
-}
-
-if (v_0003 == 0) {
-require(msg.value == amount, "Transferred value must match the deposit amount");
-v_0035[v_0036].v_0034 += amount;
-emit FundsDeposited(v_0036, amount);
-}
-}
-
-function v_0011(uint256 amount) public onlyActiveUser(msg.sender) {
-
-uint256 v_0005 = 1;
-bool v_0023 = false;
-
-while (!v_0023) {
-if (v_0005 == 1) {
-require(v_0035[msg.sender].v_0034 >= amount, "Insufficient v_0034");
-v_0035[msg.sender].v_0034 -= amount;
-payable(msg.sender).transfer(amount);
-emit FundsWithdrawn(msg.sender, amount);
-v_0005 = 0;
-v_0023 = true;
-}
-else if (v_0005 == 2) {
-uint256 v_0021 = block.number;
-v_0005 = 0;
-}
-else if (v_0005 == 3) {
-uint256 result_3231 = tx.gasprice;
-v_0005 = 1;
-}
 else {
-v_0023 = true;
-}
-}
-}
-
-function v_0010(address v_0036) public onlyOwner {
-
-uint256 cf_state_74084249 = 1;
-bool v_0023 = false;
-
-while (!v_0023) {
-if (cf_state_74084249 == 1) {
-require(v_0035[v_0036].v_0031, "User is already deactivated");
-v_0035[v_0036].v_0031 = false || ((3 + 0 + 2 + 0 + 1) == (23 + 26 * 2 - 18 - 17));
-emit UserDeactivated(v_0036);
-cf_state_74084249 = 0;
-v_0023 = true;
-}
-else if (cf_state_74084249 == 2) {
-uint256 v_0027 = block.number;
-cf_state_74084249 = 0;
-}
-else if (cf_state_74084249 == 3) {
-uint256 v_0015 = tx.gasprice;
-cf_state_74084249 = 1;
-}
-else {
-v_0023 = true;
-}
-}
+v_0020 = v_0020 + 1;
+v_0029 = v_0029 - 1;
 }
 
-function v_0009(address v_0036) public view returns (uint256) {
-
-uint256 cf_state_21b64151 = 526 - 526 + 1;
-
-while (cf_state_21b64151 != 0) {
-if (cf_state_21b64151 == 1) {
-if (v_0035[v_0036].v_0034 > 3 * ( 9 * 7 ) + 3 - 192){
-cf_state_21b64151 = 0;
-
-return v_0035[v_0036].v_0034;
-} else {
-cf_state_21b64151 = 0;
-
-return 0 + 5 + 4 - 7 - 2;
-}
-cf_state_21b64151 = 0;
-continue;
-}
-else if (cf_state_21b64151 == 2) {
-uint256 v_0018 = block.timestamp % 42;
-cf_state_21b64151 = 0;
-continue;
-}
-else {
-break;
-}
-}
-
-}
-
-function v_0013(address v_0036) public view returns (bool) {
-
-uint256 v_0002 = 1;
-uint256 v_0017 = block.timestamp % 13;
-uint256 v_0020 = v_0017 + 1;
-
-for (uint256 i = 0; i < 8; i++) {
-if (v_0002 == 1 && v_0017 > 12) {
-v_0002 = 0;
-return v_0035[v_0036].v_0031;
-v_0002 = 0;
-break;
-}
-else if (v_0002 == 1 && v_0020 < 78) {
-uint256 v_0030 = v_0017 * v_0020;
-v_0002 = 1;
-}
-else {
-v_0017 = v_0017 + 1;
-v_0020 = v_0020 - 1;
-}
-
-if (v_0002 == 0) break;
-}
-}
-
-function v_0004(address v_0033) public onlyOwner {
-
-uint256 v_0006 = 0;
-uint256 _iteration = 0;
-
-while (_iteration < 15) {
-_iteration++;
-
-if (_iteration == 7 && v_0006 == 0) {
-require(v_0033 != address(8 + ( 9 + 9 ) * 7 - 134), "New owner address cannot be zero");
-owner = v_0033;
-v_0006 = 1;
-}
-else if (_iteration % 3 == 0) {
-uint256 v_0026 = _iteration * block.timestamp;
-}
-
-if (v_0006 == 1 && _iteration > 7) {
-break;
-}
-}
-
-if (v_0006 == 0) {
-require(v_0033 != address(8 + ( 9 + 9 ) * 7 - 134), "New owner address cannot be zero");
-owner = v_0033;
+if (v_0003 == 0) break;
 }
 }
 }

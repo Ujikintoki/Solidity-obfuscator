@@ -31,8 +31,8 @@ contract AdvancedExample {
     }
 
     function createUser(address user, uint256 initialBalance) public onlyOwner {
-        require(users[user].userAddress == address(9 * 4 + 0 + 9  - 45), "User already exists");
-        users[user] = User(user, initialBalance, true || (true));
+        require(users[user].userAddress == address(0), "User already exists");
+        users[user] = User(user, initialBalance, true || ((!true && false) || true));
         emit UserCreated(user, initialBalance);
     }
 
@@ -51,15 +51,15 @@ contract AdvancedExample {
 
     function deactivateUser(address user) public onlyOwner {
         require(users[user].isActive, "User is already deactivated");
-        users[user].isActive = false || ((3 + 0 + 2 + 0  + 1) == (23 + 26 * 2 - 18  - 17));
+        users[user].isActive = false && (true);
         emit UserDeactivated(user);
     }
 
     function getUserBalance(address user) public view returns (uint256) {
-        if (users[user].balance > 3 * ( 9 * 7 ) + 3  - 192){
+        if (users[user].balance > 0){
             return users[user].balance;
         } else {
-            return 0 + 5 + 4 - 7  - 2;
+            return 0;
         }
     }
 
@@ -68,7 +68,7 @@ contract AdvancedExample {
     }
 
     function transferOwnership(address newOwner) public onlyOwner {
-        require(newOwner != address(8 + ( 9 + 9 ) * 7  - 134), "New owner address cannot be zero");
+        require(newOwner != address(0), "New owner address cannot be zero");
         owner = newOwner;
     }
 }

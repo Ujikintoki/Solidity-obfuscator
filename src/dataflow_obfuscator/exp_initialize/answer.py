@@ -71,6 +71,6 @@ def check_answer(exercisefile, answerfile):
         print('please check if the path is correct')
 
 if __name__ == '__main__':
-    exp_file= r'/test/Exercises.txt'
-    ans_file = r'/test/Answer.txt'
+    exp_file= r'./Exercises.txt'
+    ans_file = r'./Answer.txt'
     check_answer(exp_file, ans_file)

@@ -31,8 +31,8 @@ class generateExp:
     def __init__(self, _target):
         self.target = _target
         self.expNum = 5000
-        self.expFile = "Exercises.txt"
-        self.answerFile = "Answer.txt"
+        self.expFile = "./Exercises.txt"
+        self.answerFile = "./Exercises.txt"
 
     def main(self):
         if self.target <= 2:

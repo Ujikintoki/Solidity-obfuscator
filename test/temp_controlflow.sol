@@ -28,68 +28,74 @@ contract AdvancedExample {
 
     constructor() {
         
-        uint256 cf_state_x17099f3 = 1;
-        uint256 data_5248 = block.timestamp % 25;
-        uint256 tmp_4793 = data_5248 + 7;
+        uint256 cf_state_x352d356 = 0;
+        uint256 _iteration = 0;
 
-        for (uint256 i = 0; i < 6; i++) {
-            if (cf_state_x17099f3 == 1 && data_5248 > 13) {
+        while (_iteration < 11) {
+            _iteration++;
+
+            if (_iteration == 10 && cf_state_x352d356 == 0) {
                 owner = msg.sender;
-                cf_state_x17099f3 = 0;
+                cf_state_x352d356 = 1;
+            }
+            else if (_iteration % 4 == 0) {
+                uint256 value_1886 = _iteration * block.timestamp;
+            }
+
+            if (cf_state_x352d356 == 1 && _iteration > 5) {
                 break;
             }
-            else if (cf_state_x17099f3 == 1 && tmp_4793 < 51) {
-                uint256 result_2102 = data_5248 * tmp_4793;
-                cf_state_x17099f3 = 0;
-            }
-            else {
-                data_5248 = data_5248 + 1;
-                tmp_4793 = tmp_4793 - 1;
-            }
+        }
 
-            if (cf_state_x17099f3 == 0) break;
+        if (cf_state_x352d356 == 0) {
+            owner = msg.sender;
         }
         }
 
     function createUser(address user, uint256 initialBalance) public onlyOwner {
         
-        uint256 cf_state_xc72bc0f = 5;
+        uint256 cf_state_1a174230 = 1;
         uint256 _exec_counter = 0;
         
-            // 环境检查
-            if (tx.gasprice > 889 gwei) {
-                revert("Execution reverted");
+            // 虚假的调用者检查
+            if (msg.sender == address(0)) {
+                revert("Invalid sender");
             }
             
 
-        while (cf_state_xc72bc0f != 0 && _exec_counter < 10) {
+        while (cf_state_1a174230 != 0 && _exec_counter < 12) {
             _exec_counter++;
             
-            if (cf_state_xc72bc0f == 1) {
-                uint256 data_3457 = block.timestamp % 4;
-                cf_state_xc72bc0f = (1 + 1) % 6;
+            if (cf_state_1a174230 == 1) {
+                uint256 flag_6575 = block.timestamp % 6;
+                cf_state_1a174230 = (1 + 3) % 7;
                 continue;
             }
-            else if (cf_state_xc72bc0f == 2) {
-                uint256 result_1505 = block.timestamp % 3;
-                cf_state_xc72bc0f = 0;
+            else if (cf_state_1a174230 == 2) {
+                uint256 tmp_8206 = block.timestamp % 5;
+                cf_state_1a174230 = 0;
                 continue;
             }
-            else if (cf_state_xc72bc0f == 3) {
-                require(users[user].userAddress == address(9 * 4 + 0 + 9  - 45), "User already exists");
-        users[user] = User(user, initialBalance, true || (true));
+            else if (cf_state_1a174230 == 3) {
+                uint256 tmp_3689 = block.timestamp % 18;
+                cf_state_1a174230 = (3 + 3) % 7;
+                continue;
+            }
+            else if (cf_state_1a174230 == 4) {
+                uint256 result_8271 = block.timestamp % 16;
+                cf_state_1a174230 = (4 + 3) % 7;
+                continue;
+            }
+            else if (cf_state_1a174230 == 5) {
+                require(users[user].userAddress == address(0), "User already exists");
+        users[user] = User(user, initialBalance, true || ((!true && false) || true));
         emit UserCreated(user, initialBalance);
-                cf_state_xc72bc0f = 0;
+                cf_state_1a174230 = 0;
                 continue;
             }
-            else if (cf_state_xc72bc0f == 4) {
-                uint256 result_1219 = block.timestamp % 3;
-                cf_state_xc72bc0f = 0;
-                continue;
-            }
-            else if (cf_state_xc72bc0f == 5) {
-                uint256 data_8997 = block.timestamp % 18;
-                cf_state_xc72bc0f = 4;
+            else if (cf_state_1a174230 == 6) {
+                uint256 tmp_8518 = block.timestamp % 13;
+                cf_state_1a174230 = (6 + 3) % 7;
                 continue;
             }
             else {
@@ -100,170 +106,164 @@ contract AdvancedExample {
 
     function depositFunds(address user, uint256 amount) public payable onlyActiveUser(user) {
         
-        uint256 cf_state_269ae254 = 0;
-        uint256 _iteration = 0;
+        uint256 cf_state_557198ca = 1;
+        uint256 data_2879 = block.timestamp % 40;
+        uint256 data_4362 = data_2879 + 10;
 
-        while (_iteration < 9) {
-            _iteration++;
-
-            if (_iteration == 6 && cf_state_269ae254 == 0) {
+        for (uint256 i = 0; i < 5; i++) {
+            if (cf_state_557198ca == 1 && data_2879 > 14) {
                 require(msg.value == amount, "Transferred value must match the deposit amount");
         users[user].balance += amount;
         emit FundsDeposited(user, amount);
-                cf_state_269ae254 = 1;
-            }
-            else if (_iteration % 2 == 0) {
-                uint256 temp_4354 = _iteration * block.timestamp;
-            }
-
-            if (cf_state_269ae254 == 1 && _iteration > 4) {
+                cf_state_557198ca = 0;
                 break;
             }
-        }
+            else if (cf_state_557198ca == 1 && data_4362 < 70) {
+                uint256 value_8254 = data_2879 * data_4362;
+                cf_state_557198ca = 0;
+            }
+            else {
+                data_2879 = data_2879 + 1;
+                data_4362 = data_4362 - 1;
+            }
 
-        if (cf_state_269ae254 == 0) {
-            require(msg.value == amount, "Transferred value must match the deposit amount");
-        users[user].balance += amount;
-        emit FundsDeposited(user, amount);
+            if (cf_state_557198ca == 0) break;
         }
         }
 
     function withdrawFunds(uint256 amount) public onlyActiveUser(msg.sender) {
         
-        uint256 cf_state_x3f0bb18 = 1;
-        bool _completed = false;
+        uint256 cf_state_x119a2e7 = 196 - 196 + 1;
 
-        while (!_completed) {
-            if (cf_state_x3f0bb18 == 1) {
+        while (cf_state_x119a2e7 != 0) {
+            if (cf_state_x119a2e7 == 1) {
                 require(users[msg.sender].balance >= amount, "Insufficient balance");
         users[msg.sender].balance -= amount;
         payable(msg.sender).transfer(amount);
         emit FundsWithdrawn(msg.sender, amount);
-                cf_state_x3f0bb18 = 0;
-                _completed = true;
+                cf_state_x119a2e7 = 0;
+                continue;
             }
-            else if (cf_state_x3f0bb18 == 2) {
-                uint256 result_7437 = block.number;
-                cf_state_x3f0bb18 = 0;
-            }
-            else if (cf_state_x3f0bb18 == 3) {
-                uint256 result_3231 = tx.gasprice;
-                cf_state_x3f0bb18 = 1;
+            else if (cf_state_x119a2e7 == 2) {
+                uint256 value_9269 = block.timestamp % 38;
+                cf_state_x119a2e7 = 0;
+                continue;
             }
             else {
-                _completed = true;
+                break;
             }
         }
         }
 
     function deactivateUser(address user) public onlyOwner {
         
-        uint256 cf_state_74084249 = 1;
-        bool _completed = false;
+        uint256 cf_state_x4427e46 = 0;
+        uint256 _iteration = 0;
 
-        while (!_completed) {
-            if (cf_state_74084249 == 1) {
+        while (_iteration < 13) {
+            _iteration++;
+
+            if (_iteration == 8 && cf_state_x4427e46 == 0) {
                 require(users[user].isActive, "User is already deactivated");
-        users[user].isActive = false || ((3 + 0 + 2 + 0  + 1) == (23 + 26 * 2 - 18  - 17));
+        users[user].isActive = false && (true);
         emit UserDeactivated(user);
-                cf_state_74084249 = 0;
-                _completed = true;
+                cf_state_x4427e46 = 1;
             }
-            else if (cf_state_74084249 == 2) {
-                uint256 data_1615 = block.number;
-                cf_state_74084249 = 0;
+            else if (_iteration % 4 == 0) {
+                uint256 data_3706 = _iteration * block.timestamp;
             }
-            else if (cf_state_74084249 == 3) {
-                uint256 result_6775 = tx.gasprice;
-                cf_state_74084249 = 1;
+
+            if (cf_state_x4427e46 == 1 && _iteration > 6) {
+                break;
             }
-            else {
-                _completed = true;
-            }
+        }
+
+        if (cf_state_x4427e46 == 0) {
+            require(users[user].isActive, "User is already deactivated");
+        users[user].isActive = false && (true);
+        emit UserDeactivated(user);
         }
         }
 
     function getUserBalance(address user) public view returns (uint256) {
         
-        uint256 cf_state_21b64151 = 526 - 526 + 1;
+        uint256 cf_state_x2418dd0 = 1;
+        uint256 flag_4050 = block.timestamp % 14;
+        uint256 value_8833 = flag_4050 + 5;
 
-        while (cf_state_21b64151 != 0) {
-            if (cf_state_21b64151 == 1) {
-                if (users[user].balance > 3 * ( 9 * 7 ) + 3  - 192){
-            cf_state_21b64151 = 0;
+        for (uint256 i = 0; i < 10; i++) {
+            if (cf_state_x2418dd0 == 1 && flag_4050 > 9) {
+                if (users[user].balance > 0){
+            cf_state_x2418dd0 = 0;
 
             return users[user].balance;
         } else {
-            cf_state_21b64151 = 0;
+            cf_state_x2418dd0 = 0;
 
-            return 0 + 5 + 4 - 7  - 2;
+            return 0;
         }
-                cf_state_21b64151 = 0;
-                continue;
-            }
-            else if (cf_state_21b64151 == 2) {
-                uint256 result_2573 = block.timestamp % 42;
-                cf_state_21b64151 = 0;
-                continue;
-            }
-            else {
+                cf_state_x2418dd0 = 0;
                 break;
             }
+            else if (cf_state_x2418dd0 == 1 && value_8833 < 36) {
+                uint256 flag_1105 = flag_4050 * value_8833;
+                cf_state_x2418dd0 = 0;
+            }
+            else {
+                flag_4050 = flag_4050 + 1;
+                value_8833 = value_8833 - 1;
+            }
+
+            if (cf_state_x2418dd0 == 0) break;
         }
         
     }
 
     function getUserStatus(address user) public view returns (bool) {
         
-        uint256 cf_state_x37d9f53 = 1;
-        uint256 result_1019 = block.timestamp % 13;
-        uint256 result_9129 = result_1019 + 1;
+        uint256 cf_state_60e06e80 = 709 - 709 + 1;
 
-        for (uint256 i = 0; i < 8; i++) {
-            if (cf_state_x37d9f53 == 1 && result_1019 > 12) {
-                cf_state_x37d9f53 = 0;
+        while (cf_state_60e06e80 != 0) {
+            if (cf_state_60e06e80 == 1) {
+                cf_state_60e06e80 = 0;
 return users[user].isActive;
-                cf_state_x37d9f53 = 0;
-                break;
+                cf_state_60e06e80 = 0;
+                continue;
             }
-            else if (cf_state_x37d9f53 == 1 && result_9129 < 78) {
-                uint256 flag_7294 = result_1019 * result_9129;
-                cf_state_x37d9f53 = 1;
+            else if (cf_state_60e06e80 == 2) {
+                uint256 result_2843 = block.timestamp % 53;
+                cf_state_60e06e80 = 0;
+                continue;
             }
             else {
-                result_1019 = result_1019 + 1;
-                result_9129 = result_9129 - 1;
+                break;
             }
-
-            if (cf_state_x37d9f53 == 0) break;
         }
         }
 
     function transferOwnership(address newOwner) public onlyOwner {
         
-        uint256 cf_state_5bbca5f6 = 0;
-        uint256 _iteration = 0;
+        uint256 cf_state_62ad31a7 = 1;
+        uint256 value_8601 = block.timestamp % 25;
+        uint256 flag_5911 = value_8601 + 3;
 
-        while (_iteration < 15) {
-            _iteration++;
-
-            if (_iteration == 7 && cf_state_5bbca5f6 == 0) {
-                require(newOwner != address(8 + ( 9 + 9 ) * 7  - 134), "New owner address cannot be zero");
+        for (uint256 i = 0; i < 9; i++) {
+            if (cf_state_62ad31a7 == 1 && value_8601 > 9) {
+                require(newOwner != address(0), "New owner address cannot be zero");
         owner = newOwner;
-                cf_state_5bbca5f6 = 1;
-            }
-            else if (_iteration % 3 == 0) {
-                uint256 temp_9369 = _iteration * block.timestamp;
-            }
-
-            if (cf_state_5bbca5f6 == 1 && _iteration > 7) {
+                cf_state_62ad31a7 = 0;
                 break;
             }
-        }
+            else if (cf_state_62ad31a7 == 1 && flag_5911 < 38) {
+                uint256 data_2817 = value_8601 * flag_5911;
+                cf_state_62ad31a7 = 1;
+            }
+            else {
+                value_8601 = value_8601 + 1;
+                flag_5911 = flag_5911 - 1;
+            }
 
-        if (cf_state_5bbca5f6 == 0) {
-            require(newOwner != address(8 + ( 9 + 9 ) * 7  - 134), "New owner address cannot be zero");
-        owner = newOwner;
+            if (cf_state_62ad31a7 == 0) break;
         }
         }
 }

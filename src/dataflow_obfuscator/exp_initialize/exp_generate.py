@@ -167,7 +167,7 @@ class Generator:
             return 
         for i, exp in enumerate(exp_list):
             exp_str = str(i+1) + ': '+ exp +' = '+"\n"
-            with open('Exercises.txt', "a+",encoding='utf-8') as f:
+            with open('./Exercises.txt', "a+",encoding='utf-8') as f:
                 f.write(exp_str)
 
 if __name__ == '__main__':
